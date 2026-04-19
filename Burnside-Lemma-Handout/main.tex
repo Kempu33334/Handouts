@@ -1,0 +1,360 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{asymptote}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{kempu}
+
+\title{Burnside Lemma}
+\author{\LARGE Kempu33334}
+\date{\large March 2025}
+
+\begin{document}
+\maketitle
+
+\section{Preface}
+\large
+
+In this handout, we will demonstrate the method of the Burnside Lemma. This will be done in an example-problem fashion, where we will give some example problems to demonstrate, then give exercises and problems. 
+
+Problems featuring a ``\textbf{H}'' next to the number are significantly harder than the other problems.
+
+\section{Introduction}
+
+The \textbf{Burnside Lemma} is a method of solving combinatorics problems that have some form of symmetry involved in them.
+
+\begin{example*}
+  Examples of when to use it:
+  \begin{itemize}
+  \item Problems where rotations and/or reflections are considered equivalent.
+  \begin{itemize}
+      \item How many ways are there to color the sides of a square $2$ colors, where rotations and reflections are considered equivalent?
+      \item How many ways can you arrange 4 distinct keys on a ring such that rotations and reflections are considered equivalent?
+  \end{itemize}
+  \item Problems where symmetry causes overcounting.
+  \end{itemize}
+  Examples of when not to use it:
+  \begin{itemize}
+      \item When there are many symmetries.
+      \item When there isn't a clear connection between configurations that show some sort of symmetry.
+  \end{itemize}
+\end{example*}
+
+As you can see, the entire method is based on solving problems with a connection to \textbf{symmetry}. However, later on, we will see that many problems that have no apparent connection to the lemma can in fact be solved by it. \textit{So let's get started!}
+
+\section{The Lemma}
+
+The statement (given later) is rather hard to understand, so we will demonstrate the method with problems. 
+
+\begin{example}
+  How many ways are there to color the sides of a square red or blue assuming that rotations are considered equivalent?
+\end{example}
+
+Let us start by acknowledging the obvious. We \textit{can} use Burnside's Lemma because of the bolded condition. That already shows that there is some kind of symmetry!
+
+The first way we could do this would be to list out all the possibilities:
+\vspace{0.1cm}
+
+\begin{center}
+\begin{asy}
+unitsize(1cm);
+draw((0,0)--(0,1), red);
+draw((0,1)--(1,1), red);
+draw((1,1)--(1,0), red);
+draw((1,0)--(0,0), red);
+draw((2,0)--(2,1), blue);
+draw((2,1)--(3,1), blue);
+draw((3,1)--(3,0), blue);
+draw((3,0)--(2,0), blue);
+draw((4,0)--(4,1), red);
+draw((4,1)--(5,1), blue);
+draw((5,1)--(5,0), blue);
+draw((5,0)--(4,0), blue);
+draw((6,0)--(6,1), red);
+draw((6,1)--(7,1), red);
+draw((7,1)--(7,0), blue);
+draw((7,0)--(6,0), blue);
+draw((8,0)--(8,1), red);
+draw((8,1)--(9,1), blue);
+draw((9,1)--(9,0), red);
+draw((9,0)--(8,0), blue);
+draw((10,0)--(10,1), red);
+draw((10,1)--(11,1), red);
+draw((11,1)--(11,0), red);
+draw((11,0)--(10,0), blue);
+\end{asy}
+\end{center}
+
+Implying that our answer is $6$. However, imagine we have more than $2$ colors and more than $4$ sides. Then this method will get really tedious. This is where the Burnside's Lemma comes in.
+
+How can we start? Well, we first discard the condition about rotations. Now the problem is just about coloring the square! Then, we list all possible actions that will result in an equivalent state. In this case, it is $R_0, R_{90}, R_{180}, R_{270}$, where $R_n$ is a rotation by $n^\circ$. We count the \textbf{identity transformation}, $R_0$ because by definition, it results in an equivalent configuration. Now, we find the number of \textbf{fixed points} for each transformation.
+
+\begin{definition*}[Identity Transformation]
+A transformation that does nothing to the input. For example, $f(x) = x$ and $R_0$ are identity transformations.
+\end{definition*}
+
+\begin{definition*}[Fixed Points]
+The set of all configurations that remain unchanged when a function or transformation is applied to it.
+\end{definition*}
+
+For example, let's start with $R_{90}$. How many different colorings exist such that a rotation by $90^\circ$ gives the same image? If we think about this, it means that each side is the same color as the next side over. In the below diagram, each pair of sides connected by an arrow must be the same color as the other side.
+
+\begin{center}
+\begin{asy}
+unitsize(1.5cm);
+draw((0,0)--(1,0)--(1,1)--(0,1)--cycle);
+draw((0,0.6)..(0,1)..(0.4,1), EndArrow(5));
+draw((0,0.4)..(0,0)..(0.4,0), BeginArrow(5));
+draw((0.6,1)..(1,1)..(1,0.6), EndArrow(5));
+draw((1,0.4)..(1,0)..(0.6,0), EndArrow(5));
+\end{asy}
+\end{center}
+
+Well, that means that it's just the colorings which are all red or all blue!
+
+\begin{center}
+\begin{asy}
+unitsize(1cm);
+draw((0,0)--(0,1), red);
+draw((0,1)--(1,1), red);
+draw((1,1)--(1,0), red);
+draw((1,0)--(0,0), red);
+draw((2,0)--(2,1), blue);
+draw((2,1)--(3,1), blue);
+draw((3,1)--(3,0), blue);
+draw((3,0)--(2,0), blue);
+\end{asy}
+\end{center}
+
+This gives us \boldmath $2$ colorings. Similarly, we get $2$ for \unboldmath $R_{270}$, since it is just a rotation in the opposite direction. For the $R_{0}$ case, it's easy! Every coloring works, so we have $2^4$ \boldmath $= 16$\unboldmath. The $R_{180}$ case is a bit more complicated. For the two colorings to be equivalent under a rotation of $180^\circ$, we need the opposite sides to be the same coloring, so we have $2^2$ \boldmath $= 4$\unboldmath.
+
+Finally, to finish, we always average all our numbers together. This gives us: \[\dfrac{16+4+2+2}{4}\ = \boxed{6}\] which is the same answer as before!
+
+Next, we will generalize a bit.
+
+\begin{example}
+  How many ways are there to color the sides of a square one of $n$ colors assuming that rotations are considered equivalent?
+\end{example}
+
+Now, we can't casework on the answer since we don't have one fixed $n$. Thus we'll use the lemma.
+\begin{itemize}
+    \item $R_0$: In this case, we know that every configuration works. This means that each side can be one of $n$ colors, so we have \boldmath $n^4$ \unboldmath.
+    \item $R_{90}$, $R_{270}$: In this case, we know that all the sides must be the same color. This means that our answer is $n$ for each, so \boldmath $2n$ \unboldmath in total.
+    \item $R_{180}$: For this case, we know that the opposite sides must be the same color. This means that our answer is $n \cdot n$ \boldmath $= n^2$ \unboldmath.
+\end{itemize}
+
+Finally, we average these to get: \[\dfrac{n^4+n^2+2n}{4}\] as our total number of configurations. \textit{Neat!}
+We will finish the example problems of this section with a little extension. 
+
+\begin{example}
+  How many ways are there to color the sides of a rectangle (non-square), red or blue assuming that rotations and reflections across the midlines are considered equivalent? The midlines are the dashed lines shown below.
+  \begin{center}
+  \begin{asy}
+  unitsize(1cm);
+  draw((0,0)--(2,0)--(2,1)--(0,1)--cycle);
+  draw((1,1.3)--(1,-0.3), dashed);
+  draw((-0.5,0.5)--(2.5,0.5), dashed);
+  \end{asy}
+  \end{center}
+\end{example}
+
+This time, I encourage you to try the problem before looking at the solution...
+
+\vspace{0.2cm}
+
+We can again bash out possibilities to get $9$, however Burnside's Lemma is arguably more intuitive.
+
+We have the following transformations, $R_0, R_{180}$, reflect across the short or long midline. We don't have $R_{90}$ and $R_{270}$ because then the rectangle would change shape.
+
+For $R_0$, we know that it is going to be $2^4$ \boldmath $= 16$ \unboldmath and, $R_{180}$ \boldmath $= 4$\unboldmath. Now, a reflection across the short midline only requires for the two sides parallel to the midline to be the same color. This means that the two sides perpendicular to the midline can be any color. This means that we have $2^3$ \boldmath $= 8$\unboldmath, and similarly for the other midline. This then gives...$$\dfrac{16+4+8+8}{4} = \boxed{9}.$$
+
+And that's it! Now you can solve the majority of symmetry counting problems!
+
+\subsection{Exercises}
+\begin{enumerate}
+    \item There are $8$ dots on the vertices of an octagon. In how many ways can the dots be colored red or blue such that all reflections and rotations are equivalent?
+    \item How many ways are there to color the faces of a cube red or blue such that and rotations are considered equivalent?
+    \item How many ways are there to color a $3 \times 3$ grid one of ...
+    \begin{enumerate}
+        \item $2$ colors
+        \item $3$ colors
+        \item $n$ colors
+    \end{enumerate}
+    such that any rotation or reflections are considered equivalent?
+    \item[4\textbf{H}.] Generalize the square from Example 3.1 to any $k$ sided regular polygon and find a explicit formula in terms of $k$.
+\end{enumerate}
+
+\newpage
+
+\section{Further Applications}
+
+We will continue with one more (harder) problem. It will not have any obvious connection to the lemma, so try to find some common themes between this problem and the others.
+
+\begin{example*}  
+  In how many ways can $6$ indistinguishable balls be distributed into three indistinguishable boxes?
+\end{example*}
+
+Before we look at the solution, try to find the connection to Burnside's Lemma. 
+
+\vspace{0.2cm}
+
+Let's number the three boxes $1$, $2$, and $3$. Now, let's think about how to proceed. If the boxes were distinguishable, then we could use \textit{stars and bars} to solve the problem. Then if we use it, we want to divide by $6$ because we can arrange the boxes! Stars and bars then gives us that \[\binom{8}{2} = 28\] and dividing by $6$ gives $4.6666\dots$. Ummmm that doesn't work?
+\vspace{0.1cm}
+
+To see why, let's think about the case where the balls are distributed $0,3,3$. Then we shouldn't divide by $6$ because there are \textit{only} $3$ possible arrangements! This logic applies to other cases as well.
+\vspace{0.1cm}
+
+However, let's salvage the idea of permuting the boxes. We have $6$ possible arrangements:
+\begin{enumerate}
+\item $1,2,3 \rightarrow 1,2,3$
+\item $1,2,3 \rightarrow 1,3,2$
+\item $1,2,3 \rightarrow 2,1,3$
+\item $1,2,3 \rightarrow 2,3,1$
+\item $1,2,3 \rightarrow 3,1,2$
+\item $1,2,3 \rightarrow 3,2,1$
+\end{enumerate}
+
+This suggests that we use Burnside's Lemma.
+
+\begin{itemize}
+\item The first case is the identity, so the number of ways is $\binom{8}{2}=28$.
+\item The second case implies that the number of balls in the second and third boxes is the same, so there are $4$ cases here.
+\item The third case is just like the second where two elements and swapped, so this gives $4$ cases.
+\item In the fourth and fifth cases, all the boxes must have the same number of elements, meaning that each case has $1$, thus we have $2$ total.
+\item Finally, the sixth case is another swap, which means that there are $4$ possibilities.
+\end{itemize}
+
+In the end, we get \[\dfrac{28+4+4+2+4}{6} = \boxed{7}.\] This is just one surprising application of the lemma.
+
+Here is some vocabulary for the practice problems.
+
+\begin{definition*}[Non-Isomorphic Graphs]
+Graphs that are not equivalent. For example, below, the two graphs are isomorphic. The transformation is: 
+\begin{align*}
+f(a) &= 1 \\
+f(b) &= 6 \\
+f(c) &= 8 \\
+f(d) &= 3 \\
+f(g) &= 5 \\
+f(h) &= 2 \\
+f(i) &= 4 \\
+f(j) &= 7 \\
+\end{align*}
+\end{definition*}
+
+\begin{center}
+\begin{asy}
+import graph;
+size(12cm);
+
+real r = 8;
+pen border = linewidth(1.2) + black;
+
+pen blue1 = rgb(0.45,0.7,0.95);
+pen green1 = rgb(0.45,0.85,0.6);
+pen pink1 = rgb(0.95,0.6,0.75);
+pen red1 = rgb(0.95,0.6,0.6);
+pen yellow1 = rgb(0.95,0.92,0.55);
+pen vio1 = rgb(0.75,0.6,0.95);
+pen orange1 = rgb(0.98,0.78,0.45);
+pen cyan1 = rgb(0.45,0.95,0.95);
+pen purple1 = rgb(0.75,0.6,0.95);
+
+pair L = (-120,0);
+real dx = 40;
+real dy = 42;
+
+string[] leftLabels = {"a","b","c","d"};
+string[] rightLabels = {"g","h","i","j"};
+pen[] leftColors = {blue1, pink1, yellow1, cyan1};
+pen[] rightColors = {green1, red1, orange1, purple1};
+
+pair[] leftPts, rightPts;
+for(int i=0;i<4;++i){
+  leftPts.push(L + (-dx, 1.5*dy - i*dy));
+  rightPts.push(L + ( dx, 1.5*dy - i*dy));
+}
+
+pen edgePen = black+0.6;
+for(int i=0;i<4;++i){
+  for(int j=0;j<4;++j){
+    draw(leftPts[i] -- rightPts[j], edgePen + linewidth(0.7));
+  }
+}
+
+for(int i=0;i<4;++i){
+  filldraw(circle(leftPts[i], r), leftColors[i], border);
+  filldraw(circle(rightPts[i], r), rightColors[i], border);
+  label(leftLabels[i], leftPts[i], fontsize(11));
+  label(rightLabels[i], rightPts[i], fontsize(11));
+}
+
+pair R = (120,0);
+real S = 70;
+real s = 28;
+
+pair p1 = R + (-S, S);
+pair p2 = R + ( S, S);
+pair p3 = R + ( S,-S);
+pair p4 = R + (-S,-S);
+pair q5 = R + (-s, s);
+pair q6 = R + ( s, s);
+pair q7 = R + ( s,-s);
+pair q8 = R + (-s,-s);
+
+draw(p1--p2--p3--p4--cycle, black+0.8);
+draw(q5--q6--q7--q8--cycle, black+0.8);
+
+draw(p1--q5, black+0.9);
+draw(p2--q6, black+0.9);
+draw(p3--q7, black+0.9);
+draw(p4--q8, black+0.9);
+
+// colors for inner nodes 5-8 (match picture)
+pen c5 = green1, c6 = pink1, c7 = vio1, c8 = yellow1;
+pen c1 = blue1, c2 = red1, c3 = cyan1, c4 = orange1;
+
+pair[] outerPts = {p1,p2,p3,p4};
+pair[] innerPts = {q5,q6,q7,q8};
+pen[] outerCols = {c1,c2,c3,c4};
+pen[] innerCols = {c5,c6,c7,c8};
+
+for(int i=0;i<4;++i){
+  filldraw(circle(outerPts[i], r+1), outerCols[i], border);
+  label(string(i+1), outerPts[i], fontsize(11));
+}
+for(int i=0;i<4;++i){
+  filldraw(circle(innerPts[i], r+1), innerCols[i], border);
+  label(string(5+i), innerPts[i], fontsize(11));
+}
+\end{asy}
+\end{center}
+
+\newpage
+
+\section{Practice Problems}
+
+The following problems are roughly order in ascending difficulty. At risk of stating the obvious, do not be scared to try some of the later problems.
+
+\begin{enumerate}
+\item (AMC 12 2007) Each face of a regular tetrahedron is painted either red, white, or blue. Two colorings are considered indistinguishable if two congruent tetrahedra with those colorings can be rotated so that their appearances are identical. How many distinguishable colorings are possible?
+\item How many ways are there to color the faces of a cube with $6$ colors such that each face receives a different color if rotations are considered equivalent?
+\item Find the number of ways to color the vertices of a square with $n$ colors where rotations and reflections are considered equivalent.
+\item (AMC 12 2000) Eight congruent equilateral triangles, each of a different color, are used to construct a regular octahedron. How many distinguishable ways are there to construct the octahedron? (Two colored octahedrons are distinguishable if neither can be rotated to look just like the other.)
+\item Find the number of non-isomorphic graphs with $4$ vertices.
+\item  In how many ways can you color the $16$ squares of a $4 \times 4$ board when half of them must be red and the other half blue, if two colorings are considered the same if they can be obtained from each other by a rotation?
+\item Generalize Example 4.1 from $4$ to $n$.
+\item Prove Fermat's Little Theorem using Burnside's Lemma. In other words, show that for any integer $a$ and prime $p$, we have that \[a^p \equiv a \pmod{p}.\]
+\end{enumerate}
+
+\section{Burnside's Lemma Statement}
+
+For completeness, we include the statement of the lemma here, although it will probably look like hieroglyphics.
+
+\begin{theorem*}[Burnside's Lemma]
+  Let $G$ be a group acting on a set $S$. For $\alpha \in G$, let $\text{fix}(\alpha)$ denote the set of fixed points of $\alpha$. Then\[\lvert G \rvert \cdot \lvert S/G \rvert = \sum_{\alpha \in G} \lvert \text{fix}(\alpha) \rvert .\]
+\end{theorem*}
+\end{document}
