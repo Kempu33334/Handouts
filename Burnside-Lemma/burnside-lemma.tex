@@ -10,7 +10,7 @@
 
 \title{Burnside Lemma}
 \author{\LARGE Kempu33334}
-\date{\large March 2025}
+\date{\large \today}
 
 \begin{document}
 \maketitle
@@ -129,9 +129,9 @@ draw((3,0)--(2,0), blue);
 \end{asy}
 \end{center}
 
-This gives us \boldmath $2$ colorings. Similarly, we get $2$ for \unboldmath $R_{270}$, since it is just a rotation in the opposite direction. For the $R_{0}$ case, it's easy! Every coloring works, so we have $2^4$ \boldmath $= 16$\unboldmath. The $R_{180}$ case is a bit more complicated. For the two colorings to be equivalent under a rotation of $180^\circ$, we need the opposite sides to be the same coloring, so we have $2^2$ \boldmath $= 4$\unboldmath.
+This gives us $2$ colorings. Similarly, we get $2$ for $R_{270}$, since it is just a rotation in the opposite direction. For the $R_0$ case, it's easy! Every coloring works, so we have $2^4= 16$. The $R_{180}$ case is a bit more complicated. For the two colorings to be equivalent under a rotation of $180^\circ$, we need the opposite sides to be the same coloring, so we have $2^2 = 4$.
 
-Finally, to finish, we always average all our numbers together. This gives us: \[\dfrac{16+4+2+2}{4}\ = \boxed{6}\] which is the same answer as before!
+Finally, to finish, we always average all our numbers together. This gives us: \[\dfrac{1}{4}(16+4+2+2) = \boxed{6}\] which is the same answer as before!
 
 Next, we will generalize a bit.
 
@@ -141,12 +141,13 @@ Next, we will generalize a bit.
 
 Now, we can't casework on the answer since we don't have one fixed $n$. Thus we'll use the lemma.
 \begin{itemize}
-    \item $R_0$: In this case, we know that every configuration works. This means that each side can be one of $n$ colors, so we have \boldmath $n^4$ \unboldmath.
-    \item $R_{90}$, $R_{270}$: In this case, we know that all the sides must be the same color. This means that our answer is $n$ for each, so \boldmath $2n$ \unboldmath in total.
-    \item $R_{180}$: For this case, we know that the opposite sides must be the same color. This means that our answer is $n \cdot n$ \boldmath $= n^2$ \unboldmath.
+    \item $R_0$: In this case, we know that every configuration works. This means that each side can be one of $n$ colors, so we have $n^4$.
+    \item $R_{90}$, $R_{270}$: In this case, we know that all the sides must be the same color. This means that our answer is $n$ for each, so $2n$ in total.
+    \item $R_{180}$: For this case, we know that the opposite sides must be the same color. This means that our answer is $n \cdot n = n^2$.
 \end{itemize}
 
-Finally, we average these to get: \[\dfrac{n^4+n^2+2n}{4}\] as our total number of configurations. \textit{Neat!}
+Finally, we average these to get: \[\boxed{\dfrac{n^4+n^2+2n}{4}}\] as our total number of configurations. \textit{Neat!}
+
 We will finish the example problems of this section with a little extension. 
 
 \begin{example}
@@ -163,15 +164,13 @@ We will finish the example problems of this section with a little extension.
 
 This time, I encourage you to try the problem before looking at the solution...
 
-\vspace{0.2cm}
-
 We can again bash out possibilities to get $9$, however Burnside's Lemma is arguably more intuitive.
 
 We have the following transformations, $R_0, R_{180}$, reflect across the short or long midline. We don't have $R_{90}$ and $R_{270}$ because then the rectangle would change shape.
 
-For $R_0$, we know that it is going to be $2^4$ \boldmath $= 16$ \unboldmath and, $R_{180}$ \boldmath $= 4$\unboldmath. Now, a reflection across the short midline only requires for the two sides parallel to the midline to be the same color. This means that the two sides perpendicular to the midline can be any color. This means that we have $2^3$ \boldmath $= 8$\unboldmath, and similarly for the other midline. This then gives...$$\dfrac{16+4+8+8}{4} = \boxed{9}.$$
+For $R_0$, we know that it is going to be $2^4 = 16$ and, $R_{180} = 4$. Now, a reflection across the short midline only requires for the two sides parallel to the midline to be the same color. This means that the two sides perpendicular to the midline can be any color. This means that we have $2^3 = 8$, and similarly for the other midline. This then gives... \[\dfrac{1}{4}(16+4+8+8) = \boxed{9}.\]
 
-And that's it! Now you can solve the majority of symmetry counting problems!
+And that's it!
 
 \subsection{Exercises}
 \begin{enumerate}
@@ -199,22 +198,18 @@ We will continue with one more (harder) problem. It will not have any obvious co
 
 Before we look at the solution, try to find the connection to Burnside's Lemma. 
 
-\vspace{0.2cm}
+Let's number the three boxes $1$, $2$, and $3$. Now, let's think about how to proceed. If the boxes were distinguishable, then we could use \textit{stars and bars} to solve the problem. Then if we use it, we want to divide by $6$ because we can arrange the boxes! Stars and bars then gives us that \[\binom{8}{2} = 28\] and dividing by $6$ gives $4.6666\dots$. So that doesn't work?
 
-Let's number the three boxes $1$, $2$, and $3$. Now, let's think about how to proceed. If the boxes were distinguishable, then we could use \textit{stars and bars} to solve the problem. Then if we use it, we want to divide by $6$ because we can arrange the boxes! Stars and bars then gives us that \[\binom{8}{2} = 28\] and dividing by $6$ gives $4.6666\dots$. Ummmm that doesn't work?
-\vspace{0.1cm}
-
-To see why, let's think about the case where the balls are distributed $0,3,3$. Then we shouldn't divide by $6$ because there are \textit{only} $3$ possible arrangements! This logic applies to other cases as well.
-\vspace{0.1cm}
+To see why, let's think about the case where the balls are distributed $0,3,3$. Then we shouldn't divide by $6$ because there are only $3$ possible arrangements! This logic applies to other cases as well.
 
 However, let's salvage the idea of permuting the boxes. We have $6$ possible arrangements:
 \begin{enumerate}
-\item $1,2,3 \rightarrow 1,2,3$
-\item $1,2,3 \rightarrow 1,3,2$
-\item $1,2,3 \rightarrow 2,1,3$
-\item $1,2,3 \rightarrow 2,3,1$
-\item $1,2,3 \rightarrow 3,1,2$
-\item $1,2,3 \rightarrow 3,2,1$
+\item $(1,2,3) \mapsto (1,2,3)$
+\item $(1,2,3) \mapsto (1,3,2)$
+\item $(1,2,3) \mapsto (2,1,3)$
+\item $(1,2,3) \mapsto (2,3,1)$
+\item $(1,2,3) \mapsto (3,1,2)$
+\item $(1,2,3) \mapsto (3,2,1)$
 \end{enumerate}
 
 This suggests that we use Burnside's Lemma.
@@ -227,7 +222,30 @@ This suggests that we use Burnside's Lemma.
 \item Finally, the sixth case is another swap, which means that there are $4$ possibilities.
 \end{itemize}
 
-In the end, we get \[\dfrac{28+4+4+2+4}{6} = \boxed{7}.\] This is just one surprising application of the lemma.
+In the end, we get \[\dfrac{1}{6}\left(28+4+4+2+4\right) = \boxed{7}.\] This is just one surprising application of the lemma.
+
+We present one last example.
+
+\begin{example*}[2010 AIME II/10]
+Find the number of second-degree polynomials $f(x)$ with integer coefficients and integer zeros for which $f(0)=2010$.
+\end{example*}
+
+At first, it may seem like this problem is an algebra problem, not combinatorics! However, there is a very clean solution to this involving Burnside's Lemma.
+
+We can start by letting \[f(x) = a(x-r)(x-s).\] We need to find the number of tuples of integers $(a, r, s)$ such that $ars = 2010$. However, there are actually a few symmetries that prevent us from prematurely doing this!
+
+\begin{itemize}
+\item There is the identity symmetry: $(a, r, s) \mapsto (a, r, s)$.
+\item There is the root swap symmetry: $(a, s, r) \mapsto (a, r, s)$.
+\end{itemize}
+
+Now, it looks like a clear application of Burnside's Lemma. For the first case, we can note that \[ars = 2\cdot 3\cdot 5\cdot 67\] so the number of ways we can select $a$, $r$, and $s$ just comes down to selecting a variable to give a prime factor to. Also, we need to take into account the sign: since all the variables must be distinct, either all of them are positive, or just $1$ is positive. Thus, the final count for this case is \[\left(1+3\right)\left(3^4\right) = 4\cdot 3^4.\]
+
+Now, we need to calculuate the other case. If there is a symmetry by swapping $r$ and $s$, then we must have that $r = s$. But then, the only solutions to the equation \[ars = ar^2 = 2\cdot 3\cdot 5\cdot 67\] is if $r = s = \pm 1$. Thus, there are $2$ solutions in this case.
+
+Averaging the two cases, we find that the final answer is \[\dfrac{1}{2}\left(4\cdot 3^4+2\right) = \boxed{163}\] so we finish the problem, and conclude the examples.
+
+\newpage
 
 Here is some vocabulary for the practice problems.
 
@@ -241,8 +259,9 @@ f(d) &= 3 \\
 f(g) &= 5 \\
 f(h) &= 2 \\
 f(i) &= 4 \\
-f(j) &= 7 \\
+f(j) &= 7.
 \end{align*}
+In other words, two graphs are isomorphic if we can relabel the vertices in such a way that the connections are still preserved. In the graph above, we relabel $a$ to $1$, $b$ to $6$, etc., so that $a$ is still connected to $g$, $h$, and $i$, $b$ is still connected to $g$, $h$ and $j$, and so on.
 \end{definition*}
 
 \begin{center}
@@ -279,11 +298,18 @@ for(int i=0;i<4;++i){
 }
 
 pen edgePen = black+0.6;
-for(int i=0;i<4;++i){
-  for(int j=0;j<4;++j){
-    draw(leftPts[i] -- rightPts[j], edgePen + linewidth(0.7));
-  }
-}
+draw(leftPts[0] -- rightPts[0], edgePen + linewidth(0.7));
+draw(leftPts[0] -- rightPts[1], edgePen + linewidth(0.7));
+draw(leftPts[0] -- rightPts[2], edgePen + linewidth(0.7));
+draw(leftPts[1] -- rightPts[0], edgePen + linewidth(0.7));
+draw(leftPts[1] -- rightPts[1], edgePen + linewidth(0.7));
+draw(leftPts[1] -- rightPts[3], edgePen + linewidth(0.7));
+draw(leftPts[2] -- rightPts[0], edgePen + linewidth(0.7));
+draw(leftPts[2] -- rightPts[2], edgePen + linewidth(0.7));
+draw(leftPts[2] -- rightPts[3], edgePen + linewidth(0.7));
+draw(leftPts[3] -- rightPts[1], edgePen + linewidth(0.7));
+draw(leftPts[3] -- rightPts[2], edgePen + linewidth(0.7));
+draw(leftPts[3] -- rightPts[3], edgePen + linewidth(0.7));
 
 for(int i=0;i<4;++i){
   filldraw(circle(leftPts[i], r), leftColors[i], border);
@@ -340,19 +366,21 @@ for(int i=0;i<4;++i){
 The following problems are roughly order in ascending difficulty. At risk of stating the obvious, do not be scared to try some of the later problems.
 
 \begin{enumerate}
+\item Find the number of ways to color the vertices of a square with $n$ colors where rotations and reflections are considered equivalent.
 \item (AMC 12 2007) Each face of a regular tetrahedron is painted either red, white, or blue. Two colorings are considered indistinguishable if two congruent tetrahedra with those colorings can be rotated so that their appearances are identical. How many distinguishable colorings are possible?
 \item How many ways are there to color the faces of a cube with $6$ colors such that each face receives a different color if rotations are considered equivalent?
-\item Find the number of ways to color the vertices of a square with $n$ colors where rotations and reflections are considered equivalent.
 \item (AMC 12 2000) Eight congruent equilateral triangles, each of a different color, are used to construct a regular octahedron. How many distinguishable ways are there to construct the octahedron? (Two colored octahedrons are distinguishable if neither can be rotated to look just like the other.)
+\item (PUMaC 2012) Two white pentagonal pyramids, with side lengths all the same, are glued to each other at their regular pentagon bases. Some of the resulting 10 faces are colored black. How many rotationally distinguishable colorings may result?
 \item Find the number of non-isomorphic graphs with $4$ vertices.
 \item  In how many ways can you color the $16$ squares of a $4 \times 4$ board when half of them must be red and the other half blue, if two colorings are considered the same if they can be obtained from each other by a rotation?
+\item (USAMTS 2008) $27$ unit cubes, $25$ of which are colored black and $2$ of which are colored white are assembled to form a $3 \times 3 \times 3$ cube. How many distinguishable cubes can be formed? (Two cubes are indistinguishable if one of them can be rotated to appear identical to the other.)
 \item Generalize Example 4.1 from $4$ to $n$.
-\item Prove Fermat's Little Theorem using Burnside's Lemma. In other words, show that for any integer $a$ and prime $p$, we have that \[a^p \equiv a \pmod{p}.\]
+\item Prove Fermat's Little Theorem using Burnside's Lemma. In other words, show that for any integer $a$ and prime $p$, we have that $a^p \equiv a \pmod{p}$.
 \end{enumerate}
 
 \section{Burnside's Lemma Statement}
 
-For completeness, we include the statement of the lemma here, although it will probably look like hieroglyphics.
+For completeness, we include the statement of the lemma here.
 
 \begin{theorem*}[Burnside's Lemma]
   Let $G$ be a group acting on a set $S$. For $\alpha \in G$, let $\text{fix}(\alpha)$ denote the set of fixed points of $\alpha$. Then\[\lvert G \rvert \cdot \lvert S/G \rvert = \sum_{\alpha \in G} \lvert \text{fix}(\alpha) \rvert .\]

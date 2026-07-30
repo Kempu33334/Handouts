@@ -1,0 +1,183 @@
+\documentclass[11pt]{scrartcl}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{asymptote}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{kempu}
+
+\title{Probability Generating Functions}
+\author{\LARGE Kempu33334}
+\date{\large \today}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Preface}
+
+This handout is an introduction of the method of Probability Generating Functions (PGF), which is an extremely useful tool (although not widely known) for solving specific types of expectation problems. Some prerequisites for this handout include:
+
+\begin{itemize}
+\item Familiarity with:
+\begin{itemize}
+\item Basic expectation and states
+\item Generating functions
+\end{itemize}
+\item Linearity of Expectation
+\item Basic Calculus:
+\begin{itemize}
+\item Derivatives
+\item Taylor Series
+\end{itemize}
+\item Root of Unity Filters
+\end{itemize}
+
+We also use the convention that $P(X = y)$ denotes the probability that a given random variable $X$ equals $y$.
+
+\section{Definitions}
+
+We can start by defining what a PGF even is.
+
+\begin{definition*}[Probability Generating Function]
+For a random variable $X$ that takes on non-negative integer values, the PGF is defined as the expected value of $s^X$, denoted as $G_X(s)$: \[G_X(s) = \mathbb{E}[s^X] = \sum_{x=0}^{\infty} P(X=x)s^x.\] Here, the coefficient of each $s^x$ represents the probability that the random variable equals $x$, while the exponent acts as a placeholder or ``dummy variable'' for the corresponding outcome. Also, notice that the series always converges for $|s|\le1$,
+which is the region we will primarily use.
+\end{definition*}
+
+Here are a few key facts about PGFs.
+
+\begin{example*}[Basic PGF Properties]
+Let $X$ be a random variable that takes on non-negative integer values, and define the PGF $G_X(s)$. Then, the following properties hold:
+\begin{enumerate}
+\item $G_X(1) = \sum_{x=0}^{\infty} P(X=x) = 1$.
+\item $x!\cdot P(X = x) = G_X^{(x)}(0)$.
+\begin{itemize}
+\item Notably, $P(X = 0) = G_X(0)$, and $P(X = 1) = G_X'(0)$.
+\end{itemize}
+\item $\mathbb{E}[X] = G_X'(1)$.
+\item $\operatorname{Var}(X) = G_X''(1)+G_X'(1)-(G'_X(1))^2$.
+\end{enumerate}
+\end{example*}
+
+Perhaps the most crucial of all of these are Properties 3, 4, as they directly link the expectation and variance of a random variable to its PGF. Proving these properties are relatively straightforward, and are left as an exercise to the reader.
+
+Now, we present an extremely useful result allowing for the manipulation of these PGFs:
+
+\begin{theorem*}[Convolution Theorem]
+Let $X$ and $Y$ be two independent random variables that take on non-negative integer values. Then, \[G_{X+Y}(s) = G_X(s) \cdot G_Y(s).\]
+\end{theorem*}
+\begin{proof}
+A simple proof is as follows: \[G_{X+Y}(s) = \mathbb{E}[s^{X+Y}] = \mathbb{E}[s^X s^Y] = \mathbb{E}[s^X]\cdot\mathbb{E}[s^Y] = G_X(s)\cdot G_Y(s).\] Alternatively, we have the following manipulations:
+\begin{align*}
+G_X(s) \cdot G_Y(s) &= \sum_{x=0}^{\infty}P(X=x)s^x \cdot \sum_{y=0}^{\infty}P(Y=y)s^y \\
+&= \sum_{z=0}^{\infty}\sum_{i=0}^z P(X=i)P(Y=z-i)s^z \\
+&= \sum_{z=0}^{\infty}P(X+Y = z)s^z \\
+&= G_{X+Y}(s)
+\end{align*}
+so we are done.
+\end{proof}
+
+\section{Basic Applications}
+
+Let's now move on to some basic applications of PGFs. The power of PGFs is that many probabilistic operations become algebraic operations: sums of independent random variables correspond to products of PGFs, and moments of a distribution (like $X^2$, $X^3$, etc.) may be recovered by differentiation.
+
+\begin{example*}
+Three fair, $5$-sided dice are rolled. What is the probability that the sum of the three results is divisible by $2$?
+\end{example*}
+
+First of all, we can let $X$ be the random variable representing a fair $5$-sided dice roll, so that we have the PGF: \[G_X(s) = \dfrac{1}{5}\left(s+s^2+s^3+s^4+s^5\right).\] Thus, by the Convolution Theorem, \[G_{X+X+X}(s) = G_X(s)^3 = \dfrac{1}{125}\left(s+s^2+s^3+s^4+s^5\right)^3\] which is the PGF of our triple dice roll. Hence, if we want to find the sum of the coefficients of all the terms whose degree is even, we can use a standard root of unity filter: $\tfrac{1}{2}\left(G_X(1)^3+G_X(-1)^3\right)$. Computing, we get:
+\begin{align*}
+\dfrac{1}{2}\left(G_X(1)^3+G_X(-1)^3\right) &= \dfrac{1}{250}\left(1+1^2+1^3+1^4+1^5\right)^3 \\
+&\phantom{=}+\dfrac{1}{250}\left(-1+(-1)^2+(-1)^3+(-1)^4+(-1)^5\right)^3 \\
+&= \dfrac{1}{250}\left(125-1\right) \\
+&= \boxed{\dfrac{62}{125}}
+\end{align*}
+which is our final answer.
+
+\begin{example*}
+A point lives on the x-axis, starting at $x = 0$, and moves right with probability $\tfrac{2}{3}$ and left with probability $\tfrac{1}{3}$ every second. What is the expected amount of time it will take for the point to move to $x = 2$?
+\end{example*}
+
+Let $T_1$ be the random variable for the time to go from $x = 0$ to $x = 1$. The time to go from $x = 1$ to $x = 2$ is an independent copy $T_2$ with the identical distribution. The total time $T$ is: \[T = T_1 + T_2.\] Since $T_1$ and $T_2$ are independent, their Probability Generating Functions (PGFs) multiply by the Convolution Theorem: \[G_T(s) = G_{T_1}(s) \cdot G_{T_2}(s) = [G_{T_1}(s)]^2.\] To find the expected value $\mathbb{E}[T] = G'_T(1)$, we apply the chain rule to differentiate $G_T(s)$ with respect to $s$: \[G'_T(s) = 2[G_{T_1}(s)] \cdot G'_{T_1}(s).\] Evaluating at $s = 1$, and knowing that $G_{T_1}(1) = 1$ for a valid probability distribution, we get: \[G'_T(1) = 2(1) \cdot G'_{T_1}(1) = 2G'_{T_1}(1).\] Thus, the total expected time is: \[\mathbb{E}[T] = 2\mathbb{E}[T_1].\]
+
+Now, we can analyze the first step at $t = 1$: If the point moves right, then we are already done. If not, then it has to move an additional two to the right, so we are back to the original problem. Thus, we get the relation: \[G_{T_1}(s) = \frac{2}{3}s + \frac{1}{3}s [G_{T_1}(s)]^2.\] Letting $G = G_{T_1}(s)$ to simplify notation: \[G = \frac{2}{3}s + \frac{1}{3}sG^2.\] Multiplying by $3$ and rearranging into a quadratic equation yields: \[sG^2 - 3G + 2s = 0.\] Now, differentiating the implicit equation with respect to $s$: \[G^2 + 2sG \cdot G' - 3G' + 2 = 0.\] Substitute $s = 1$ and $G(1) = 1$: \[(1)^2 + 2(1)(1)G' - 3G' + 2 = 0\] so \[3-G' = 0 \implies G' = 3.\] Thus, $\mathbb{E}[T_1] = G'_{T_1}(1) = 3$ seconds, and the final answer is \[\mathbb{E}[T] = 2G'_{T_1}(1) = 2 \times 3 = \boxed{6 \text{ seconds}}.\]
+
+\begin{example*}
+A fair coin is flipped until the first heads appears. Compute the expected number of flips.
+\end{example*}
+
+Let $X$ be the corresponding random variable. Then, we want to find $\mathbb{E}[X] = G_X'(1) = 2$. However, notice that $G_X(s)$ actually satisfies: \[G(s) = \dfrac{1}{2}s+\dfrac{1}{2}sG(s)\] since if the flip is heads, we are immediately done. Otherwise, it is the same state as before, but with an additional turn taken, giving the desired recurrence. Furthermore, solving yields \[G(s) = \dfrac{s}{2-s} \implies G'(s) = \dfrac{2}{(2-s)^2}\] via quotient rule. Hence, $G'(1) = \boxed{2}$, which is the final answer.
+
+\section{Advanced Applications}
+
+We can now move on to some more difficult applications, that showcase the extent of the method.
+
+\begin{example*}
+A biased coin with probability $p$ of heads is flipped until two consecutive heads appear. Compute the expected number of flips.
+\end{example*}
+
+Let $T_0$ be the random variable representing the remaining number of flips needed when we currently have no consecutive heads, and let $T_1$ represent the remaining number of flips needed when the previous flip was a head. Define their PGFs as \[G_0(s)=\mathbb{E}[s^{T_0}], \qquad G_1(s)=\mathbb{E}[s^{T_1}].\] Starting from state $0$, the first flip takes one second. With probability $p$, the flip is a head and we move to state $1$, while with probability $1-p$, the flip is a tail and we remain in state $0$. Hence, \[G_0(s)=psG_1(s)+(1-p)sG_0(s).\]
+
+Starting from state $1$, another head finishes the process, while a tail returns us to state $0$. Therefore, \[G_1(s)=ps+(1-p)sG_0(s).\] Substituting the second equation into the first gives \[G_0(s) = ps\left(ps+(1-p)sG_0(s)\right) +(1-p)sG_0(s).\] Expanding and rearranging, \[G_0(s) = p^2s^2+p(1-p)s^2G_0(s)+(1-p)sG_0(s),\] so \[G_0(s)\left(1-(1-p)s-p(1-p)s^2\right)=p^2s^2.\] Therefore, \[G_0(s)= \frac{p^2s^2}{1-(1-p)s-p(1-p)s^2}.\]
+
+We now differentiate to obtain the expectation: \[\mathbb{E}[T_0]=G_0'(1).\] Let \[D(s)=1-(1-p)s-p(1-p)s^2.\] Then \[G_0(s)=\frac{p^2s^2}{D(s)},\] and by the quotient rule, \[G_0'(s) =\frac{2p^2sD(s)-p^2s^2D'(s)}{D(s)^2}.\] Evaluating at $s=1$, we have \[D(1)=p^2\] and \[D'(s)=-(1-p)-2p(1-p)s,\] so \[D'(1)=-(1-p)(1+2p).\]
+
+Hence,
+\begin{align*}
+G_0'(1) &= \frac{2p^2(p^2)-p^2\left(-(1-p)(1+2p)\right)}{p^4} \\
+&= \frac{2p^2+(1-p)(1+2p)}{p^2} \\
+&= \frac{1+p}{p^2}.
+\end{align*}
+
+Finally, the expected number of flips is \[ \boxed{\mathbb{E}[T_0]=\frac{1+p}{p^2}}.\]
+
+Now, while this could be solved without PGFs, and using states instead (which would infact be faster here), the next example shows when they are most useful.
+
+\begin{example*}[OTIS]
+Evan is on the number line at the number $0$. Each day, he either goes up $1$ (with probability $\tfrac{2}{3}$) or goes down $1$ (with probability $\tfrac{1}{3}$). Let $X$ denote the number of days it takes for Evan to first arrive at $2$. Find the expected value of $X^2$.
+\end{example*}
+
+The total time to reach $x=2$ is $X = T_1 + T_2$, where $T_1, T_2$ are independent single-step times. Their PGFs satisfy: \[G_X(s) = [G_{T_1}(s)]^2.\] Then, we obtain that \[\mathbb{E}[X^2] = G_X''(1) + G_X'(1).\] We already know from the previous problem that $G_X'(1) = \mathbb{E}[X] = 6$.
+
+Now, differentiating $G_X'(s) = 2G_{T_1}(s)G'_{T_1}(s)$ with respect to $s$ via the product and chain rules yields: \[G_X''(s) = 2 \left( G'_{T_1}(s) \right)^2 + 2G_{T_1}(s)G''_{T_1}(s).\] Evaluating at $s = 1$ with $G_{T_1}(1) = 1$ and $G'_{T_1}(1) = 3$ gives \[G_X''(1) = 2(3)^2 + 2(1)G''_{T_1}(1) = 18 + 2G''_{T_1}(1).\] The equation for a single step is $sG^2 - 3G + 2s = 0$ (where $G = G_{T_1}(s)$). Its first derivative is: \[2sGG' + G^2 - 3G' + 2 = 0.\] Differentiating implicitly a second time with respect to $s$: \[4GG' + 2s(G')^2 + (2sG - 3)G'' = 0.\] Plugging in $s = 1$, $G(1) = 1$, and $G'(1) = 3$: \[4(1)(3) + 2(1)(3)^2 + (2(1)(1) - 3)G'' = 0\] so \[12 + 18 - G'' = 0 \implies G''_{T_1}(1) = 30.\] Finally, substituting $G''_{T_1}(1) = 30$ into the chain rule relation: \[G_X''(1) = 18 + 2(30) = 78.\] Thus, the expected value of $X^2$ is: \[\mathbb{E}[X^2] = G_X''(1) + G_X'(1) = 78 + 6 = \boxed{84}\] as desired.
+
+\subsection{Common Ideas}
+
+Here are some common ideas that appear that relate to PGFs:
+
+\begin{example*}[Common PGF Patterns]
+\begin{itemize}
+\item Independent sums: \[G_{X+Y}=G_XG_Y\]
+\item First-step analysis: \[G(s)=\text{immediate contribution}+\text{restart contribution}\]
+\item Moments: \[E[X]=G'(1),\qquad E[X^2]=G''(1)+G'(1).\]
+\end{itemize}
+\end{example*}
+
+\section{Practice Problems}
+
+\begin{enumerate}
+\item A random variable $X$ has PGF \[G_X(s)=\frac{1+s+s^2+s^3}{4}.\] Find \[\mathbb{E}[X],\qquad \operatorname{Var}(X).\]
+\item Three fair $10$-sided dice are rolled. Find the probability that the sum is congruent to $1 \pmod{4}$.
+\item A biased coin has probability $p$ of heads. It is flipped until the first head appears. Let $X$ be the total number of flips. Find the:
+\begin{itemize}
+\item PGF of the number of flips
+\item $\mathbb{E}[X]$
+\item $\mathbb{E}[X^2]$
+\item $\mathbb{E}[X^3]$.
+\end{itemize}
+\item A particle starts at $0$. Each step it moves right with probability $p$ and left with probability $p$ for $p < \tfrac{1}{2}$.
+Find the expected time to first reach $2$.
+\item For the random walk in the previous problem, find \[\mathbb{E}[T^2].\]
+\item A random variable $X$ satisfies \[G_X(s)=\frac13(1+s+s^2G_X(s)).\] Find \[\mathbb{E}[X] \qquad\text{and}\qquad \operatorname{Var}(X).\]
+\item A plant reproduces as follows: each plant produces $0$, $1$, or $2$
+offspring with probabilities \[\frac14,\frac12,\frac14,\] respectively. Let $X$ be the total number of plants in the resulting family tree, including the original plant.
+\begin{itemize}
+\item Find the probability generating function of $X$.
+\item Determine whether $\mathbb{E}[X]$ is finite.
+\item Compute $P(X=2n+1)$ for a fixed non-negative integer $n$.
+\end{itemize}
+\end{enumerate}
+\end{document}

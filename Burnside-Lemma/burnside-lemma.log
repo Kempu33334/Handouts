@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.27)  18 APR 2026 16:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.27)  21 APR 2026 18:30
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**burnside-lemma.tex
+(./burnside-lemma.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-10-24>
 (c:/texlive/2025/texmf-dist/tex/latex/koma-script/scrartcl.cls
@@ -652,14 +652,14 @@ File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 Library (tcolorbox): 'tcbposter.code.tex' version '6.8.0'
 )) (c:/texlive/2025/texmf-dist/tex/latex/asymptote/asymptote.sty
 Package: asymptote 2024/02/26 v1.38 Asymptote style file for LaTeX
- (./main.pre)
+
+(./burnside-lemma.pre)
 \ASYbox=\box83
 \ASYdimen=\dimen274
 \c@asy=\count335
 \AsyStream=\write4
 \AsyPreStream=\write5
-
-(c:/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+ (c:/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
 (c:/texlive/2025/texmf-dist/tex/generic/iftex/ifpdf.sty
@@ -674,7 +674,7 @@ Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
 (c:/texlive/2025/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 ))
-\openout5 = `main.pre'.
+\openout5 = `burnside-lemma.pre'.
 
 )
 (c:/texlive/2025/texmf-dist/tex/latex/subfigure/subfigure.sty
@@ -1230,8 +1230,8 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 15
 
 (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./main.aux)
-\openout1 = `main.aux'.
+) (./burnside-lemma.aux)
+\openout1 = `burnside-lemma.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
@@ -1400,88 +1400,88 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 {c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/
 texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2025/texmf-dist/fonts/enc/d
 vips/lm/lm-ts1.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-\openout4 = `main-1.asy'.
+\openout4 = `burnside-lemma-1.asy'.
 
-<main-1.pdf, id=59, 313.48116pt x 28.95819pt>
-File: main-1.pdf Graphic file (type pdf)
-<use main-1.pdf>
-Package pdftex.def Info: main-1.pdf  used on input line 88.
+<burnside-lemma-1.pdf, id=59, 313.48116pt x 28.95819pt>
+File: burnside-lemma-1.pdf Graphic file (type pdf)
+<use burnside-lemma-1.pdf>
+Package pdftex.def Info: burnside-lemma-1.pdf  used on input line 88.
 (pdftex.def)             Requested size: 313.4804pt x 28.95811pt.
-\openout4 = `main-2.asy'.
+\openout4 = `burnside-lemma-2.asy'.
 
-<main-2.pdf, id=60, 51.25148pt x 51.25148pt>
-File: main-2.pdf Graphic file (type pdf)
-<use main-2.pdf>
-Package pdftex.def Info: main-2.pdf  used on input line 113.
+<burnside-lemma-2.pdf, id=60, 51.25148pt x 51.25148pt>
+File: burnside-lemma-2.pdf Graphic file (type pdf)
+<use burnside-lemma-2.pdf>
+Package pdftex.def Info: burnside-lemma-2.pdf  used on input line 113.
 (pdftex.def)             Requested size: 51.25134pt x 51.25134pt.
-\openout4 = `main-3.asy'.
+\openout4 = `burnside-lemma-3.asy'.
 
-<main-3.pdf, id=61, 85.86078pt x 28.95819pt>
-File: main-3.pdf Graphic file (type pdf)
-<use main-3.pdf>
-Package pdftex.def Info: main-3.pdf  used on input line 129.
+<burnside-lemma-3.pdf, id=61, 85.86078pt x 28.95819pt>
+File: burnside-lemma-3.pdf Graphic file (type pdf)
+<use burnside-lemma-3.pdf>
+Package pdftex.def Info: burnside-lemma-3.pdf  used on input line 129.
 (pdftex.def)             Requested size: 85.86057pt x 28.95811pt.
 
 
 [2{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2025
-/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} <./main-1.pdf> <./main-2.pdf> <./
-main-3.pdf>]
-\openout4 = `main-4.asy'.
+/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} <./burnside-lemma-1.pdf> <./burns
+ide-lemma-2.pdf> <./burnside-lemma-3.pdf>]
+\openout4 = `burnside-lemma-4.asy'.
 
-<main-4.pdf, id=78, 85.86078pt x 46.02194pt>
-File: main-4.pdf Graphic file (type pdf)
-<use main-4.pdf>
-Package pdftex.def Info: main-4.pdf  used on input line 160.
+<burnside-lemma-4.pdf, id=78, 85.86078pt x 46.02194pt>
+File: burnside-lemma-4.pdf Graphic file (type pdf)
+<use burnside-lemma-4.pdf>
+Package pdftex.def Info: burnside-lemma-4.pdf  used on input line 161.
 (pdftex.def)             Requested size: 85.86057pt x 46.02182pt.
 
 
-[3 <./main-4.pdf>]
+[3 <./burnside-lemma-4.pdf>]
 
 [4]
 
 [5{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-\openout4 = `main-5.asy'.
 
-<main-5.pdf, id=114, 341.4326pt x 147.67873pt>
-File: main-5.pdf Graphic file (type pdf)
-<use main-5.pdf>
-Package pdftex.def Info: main-5.pdf  used on input line 333.
+[6]
+\openout4 = `burnside-lemma-5.asy'.
+
+<burnside-lemma-5.pdf, id=115, 341.4326pt x 147.67873pt>
+File: burnside-lemma-5.pdf Graphic file (type pdf)
+<use burnside-lemma-5.pdf>
+Package pdftex.def Info: burnside-lemma-5.pdf  used on input line 359.
 (pdftex.def)             Requested size: 341.43176pt x 147.67834pt.
 
 
-[6 <./main-5.pdf>]
+[7 <./burnside-lemma-5.pdf>]
 
-[7] (./main.aux)
+[8] (./burnside-lemma.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 36780 strings out of 467747
- 742971 string characters out of 5431120
- 1311257 words of memory out of 5000000
- 64784 multiletter control sequences out of 15000+600000
- 709216 words of font info for 101 fonts, out of 8000000 for 9000
+ 36767 strings out of 467747
+ 743528 string characters out of 5431120
+ 1311314 words of memory out of 5000000
+ 64775 multiletter control sequences out of 15000+600000
+ 698414 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,9n,107p,11228b,1022s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,9n,107p,11238b,1022s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texl
 ive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2025/texmf-dis
-t/fonts/type1/public/lm/lmbx8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/publi
-c/lm/lmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c
-:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/2025/texm
-f-dist/fonts/type1/public/lm/lmmib10.pfb><c:/texlive/2025/texmf-dist/fonts/type
-1/public/lm/lmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.p
-fb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/texlive/2025
-/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2025/texmf-dist/fonts/ty
-pe1/public/lm/lmri12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss
-12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texli
-ve/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2025/texmf-dist
-/fonts/type1/public/lm/lmsy8.pfb>
-Output written on main.pdf (7 pages, 280067 bytes).
+t/fonts/type1/public/lm/lmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/publ
+ic/lm/lmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c
+:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2025/texm
+f-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/
+public/lm/lmr17.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb>
+<c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2025/t
+exmf-dist/fonts/type1/public/lm/lmss12.pfb><c:/texlive/2025/texmf-dist/fonts/ty
+pe1/public/lm/lmssbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
+sy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on burnside-lemma.pdf (8 pages, 260745 bytes).
 PDF statistics:
- 254 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
+ 247 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
  238 words of extra memory for PDF output out of 10000 (max. 10000000)
 

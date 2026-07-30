@@ -1,6 +1,6 @@
 if(!settings.multipleView) settings.batchView=false;
 settings.tex="pdflatex";
-defaultfilename="main-2";
+defaultfilename="burnside-lemma-2";
 if(settings.render < 0) settings.render=4;
 settings.outformat="";
 settings.inlineimage=true;

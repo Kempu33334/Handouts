@@ -1,6 +1,6 @@
 if(!settings.multipleView) settings.batchView=false;
 settings.tex="pdflatex";
-defaultfilename="main-5";
+defaultfilename="burnside-lemma-5";
 if(settings.render < 0) settings.render=4;
 settings.outformat="";
 settings.inlineimage=true;
@@ -40,11 +40,18 @@ rightPts.push(L + ( dx, 1.5*dy - i*dy));
 }
 
 pen edgePen = black+0.6;
-for(int i=0;i<4;++i){
-for(int j=0;j<4;++j){
-draw(leftPts[i] -- rightPts[j], edgePen + linewidth(0.7));
-}
-}
+draw(leftPts[0] -- rightPts[0], edgePen + linewidth(0.7));
+draw(leftPts[0] -- rightPts[1], edgePen + linewidth(0.7));
+draw(leftPts[0] -- rightPts[2], edgePen + linewidth(0.7));
+draw(leftPts[1] -- rightPts[0], edgePen + linewidth(0.7));
+draw(leftPts[1] -- rightPts[1], edgePen + linewidth(0.7));
+draw(leftPts[1] -- rightPts[3], edgePen + linewidth(0.7));
+draw(leftPts[2] -- rightPts[0], edgePen + linewidth(0.7));
+draw(leftPts[2] -- rightPts[2], edgePen + linewidth(0.7));
+draw(leftPts[2] -- rightPts[3], edgePen + linewidth(0.7));
+draw(leftPts[3] -- rightPts[1], edgePen + linewidth(0.7));
+draw(leftPts[3] -- rightPts[2], edgePen + linewidth(0.7));
+draw(leftPts[3] -- rightPts[3], edgePen + linewidth(0.7));
 
 for(int i=0;i<4;++i){
 filldraw(circle(leftPts[i], r), leftColors[i], border);

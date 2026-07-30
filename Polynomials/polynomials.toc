@@ -1,0 +1,27 @@
+\contentsline {section}{\numberline {1}Preface}{2}{section.1}%
+\contentsline {section}{\numberline {2}Introduction}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Exercises}{4}{subsection.2.1}%
+\contentsline {section}{\numberline {3}A Quick Exposition on Complex Numbers}{5}{section.3}%
+\contentsline {section}{\numberline {4}Roots and the Fundamental Theorem of Algebra}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Polynomial Multiplication and Long Division}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Quotient-Remainder Form}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The Fundamental Theorem of Algebra}{12}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Root Finding Methods and Conjugates}{13}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}The Quadratic Formula}{14}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Conjugate Theorem}{14}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Rational Root Theorem}{16}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}The Intermediate Value Theorem}{17}{subsubsection.4.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.5}Newton's Method}{18}{subsubsection.4.4.5}%
+\contentsline {subsection}{\numberline {4.5}Exercises}{19}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Symmetric Polynomials and Vieta's Formulae}{20}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Newton's Sums}{23}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Exercises}{24}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Polynomial Construction}{25}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Substitution and Transformations}{25}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}The Two-Polynomial Method}{26}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Lagrange Interpolation}{28}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Finite Differences}{29}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Problems}{32}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Easier Problems}{32}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Harder Problems}{34}{subsection.7.2}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
