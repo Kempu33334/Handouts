@@ -173,27 +173,34 @@ For $R_0$, we know that it is going to be $2^4 = 16$ and, $R_{180} = 4$. Now, a 
 And that's it!
 
 \subsection{Exercises}
+
+\begin{problem}[1]{}
+There are $8$ dots on the vertices of an octagon. In how many ways can the dots be colored red or blue such that all reflections and rotations are equivalent?
+\end{problem}
+\begin{problem}[2]{}
+How many ways are there to color the faces of a cube red or blue such that and rotations are considered equivalent?
+\end{problem}
+\begin{problem}[3]{}
+How many ways are there to color a $3 \times 3$ grid one of:
 \begin{enumerate}
-    \item There are $8$ dots on the vertices of an octagon. In how many ways can the dots be colored red or blue such that all reflections and rotations are equivalent?
-    \item How many ways are there to color the faces of a cube red or blue such that and rotations are considered equivalent?
-    \item How many ways are there to color a $3 \times 3$ grid one of ...
-    \begin{enumerate}
-        \item $2$ colors
-        \item $3$ colors
-        \item $n$ colors
-    \end{enumerate}
-    such that any rotation or reflections are considered equivalent?
-    \item[4\textbf{H}.] Generalize the square from Example 3.1 to any $k$ sided regular polygon and find a explicit formula in terms of $k$.
+\item $2$ colors
+\item $3$ colors
+\item $n$ colors
 \end{enumerate}
+such that any rotation or reflections are considered equivalent?
+\end{problem}
+\begin{problem}[4H]{}
+Generalize the square from Example 3.1 to any $k$ sided regular polygon and find a explicit formula in terms of $k$.
+\end{problem}
 
 \newpage
 
 \section{Further Applications}
 
-We will continue with one more (harder) problem. It will not have any obvious connection to the lemma, so try to find some common themes between this problem and the others.
+We will continue with two more (harder) problems. They will not have any obvious connection to the lemma, so try to find some common themes between this problem and the others.
 
 \begin{example*}  
-  In how many ways can $6$ indistinguishable balls be distributed into three indistinguishable boxes?
+In how many ways can $6$ indistinguishable balls be distributed into three indistinguishable boxes?
 \end{example*}
 
 Before we look at the solution, try to find the connection to Burnside's Lemma. 
@@ -365,18 +372,36 @@ for(int i=0;i<4;++i){
 
 The following problems are roughly order in ascending difficulty. At risk of stating the obvious, do not be scared to try some of the later problems.
 
-\begin{enumerate}
-\item Find the number of ways to color the vertices of a square with $n$ colors where rotations and reflections are considered equivalent.
-\item (AMC 12 2007) Each face of a regular tetrahedron is painted either red, white, or blue. Two colorings are considered indistinguishable if two congruent tetrahedra with those colorings can be rotated so that their appearances are identical. How many distinguishable colorings are possible?
-\item How many ways are there to color the faces of a cube with $6$ colors such that each face receives a different color if rotations are considered equivalent?
-\item (AMC 12 2000) Eight congruent equilateral triangles, each of a different color, are used to construct a regular octahedron. How many distinguishable ways are there to construct the octahedron? (Two colored octahedrons are distinguishable if neither can be rotated to look just like the other.)
-\item (PUMaC 2012) Two white pentagonal pyramids, with side lengths all the same, are glued to each other at their regular pentagon bases. Some of the resulting 10 faces are colored black. How many rotationally distinguishable colorings may result?
-\item Find the number of non-isomorphic graphs with $4$ vertices.
-\item  In how many ways can you color the $16$ squares of a $4 \times 4$ board when half of them must be red and the other half blue, if two colorings are considered the same if they can be obtained from each other by a rotation?
-\item (USAMTS 2008) $27$ unit cubes, $25$ of which are colored black and $2$ of which are colored white are assembled to form a $3 \times 3 \times 3$ cube. How many distinguishable cubes can be formed? (Two cubes are indistinguishable if one of them can be rotated to appear identical to the other.)
-\item Generalize Example 4.1 from $4$ to $n$.
-\item Prove Fermat's Little Theorem using Burnside's Lemma. In other words, show that for any integer $a$ and prime $p$, we have that $a^p \equiv a \pmod{p}$.
-\end{enumerate}
+\begin{problem}[1]{}
+Find the number of ways to color the vertices of a square with $n$ colors where rotations and reflections are considered equivalent.
+\end{problem}
+\begin{problem}[2]{AMC 12 2007}
+Each face of a regular tetrahedron is painted either red, white, or blue. Two colorings are considered indistinguishable if two congruent tetrahedra with those colorings can be rotated so that their appearances are identical. How many distinguishable colorings are possible?
+\end{problem}
+\begin{problem}[3]{}
+How many ways are there to color the faces of a cube with $6$ colors such that each face receives a different color if rotations are considered equivalent?
+\end{problem}
+\begin{problem}[4]{AMC 12 2000}
+Eight congruent equilateral triangles, each of a different color, are used to construct a regular octahedron. How many distinguishable ways are there to construct the octahedron? (Two colored octahedrons are distinguishable if neither can be rotated to look just like the other.)
+\end{problem}
+\begin{problem}[5]{PUMaC 2012}
+Two white pentagonal pyramids, with side lengths all the same, are glued to each other at their regular pentagon bases. Some of the resulting 10 faces are colored black. How many rotationally distinguishable colorings may result?
+\end{problem}
+\begin{problem}[6]{}
+Find the number of non-isomorphic graphs with $4$ vertices.
+\end{problem}
+\begin{problem}[7]{}
+In how many ways can you color the $16$ squares of a $4 \times 4$ board when half of them must be red and the other half blue, if two colorings are considered the same if they can be obtained from each other by a rotation?
+\end{problem}
+\begin{problem}[8]{USAMTS 2008}
+$27$ unit cubes, $25$ of which are colored black and $2$ of which are colored white are assembled to form a $3 \times 3 \times 3$ cube. How many distinguishable cubes can be formed? (Two cubes are indistinguishable if one of them can be rotated to appear identical to the other.)
+\end{problem}
+\begin{problem}[9]{}
+Generalize Example 4.1 from $4$ to $n$.
+\end{problem}
+\begin{problem}[10]{}
+Prove Fermat's Little Theorem using Burnside's Lemma. In other words, show that for any integer $a$ and prime $p$, we have that $a^p \equiv a \pmod{p}$.
+\end{problem}
 
 \section{Burnside's Lemma Statement}
 

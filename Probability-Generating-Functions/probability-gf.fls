@@ -333,8 +333,6 @@ INPUT c:/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/lmodern.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/lmodern.sty
-INPUT c:/texlive/2025/texmf-dist/tex/latex/longdivision/longdivision.sty
-INPUT c:/texlive/2025/texmf-dist/tex/latex/longdivision/longdivision.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
@@ -450,6 +448,12 @@ INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT ./probability-gf.toc
 INPUT ./probability-gf.toc
 INPUT probability-gf.toc
+OUTPUT probability-gf.toc
+INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
+INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
+INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr8.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr6.tfm
@@ -465,12 +469,6 @@ INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-OUTPUT probability-gf.toc
-INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
-INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
-INPUT c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
 INPUT c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
@@ -481,7 +479,6 @@ INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr6.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT probability-gf.aux
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb

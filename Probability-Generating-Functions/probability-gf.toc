@@ -2,6 +2,5 @@
 \contentsline {section}{\numberline {2}Definitions}{1}{section.2}%
 \contentsline {section}{\numberline {3}Basic Applications}{3}{section.3}%
 \contentsline {section}{\numberline {4}Advanced Applications}{5}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Common Ideas}{7}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Practice Problems}{8}{section.5}%
+\contentsline {section}{\numberline {5}Practice Problems}{7}{section.5}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

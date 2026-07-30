@@ -144,40 +144,40 @@ The total time to reach $x=2$ is $X = T_1 + T_2$, where $T_1, T_2$ are independe
 
 Now, differentiating $G_X'(s) = 2G_{T_1}(s)G'_{T_1}(s)$ with respect to $s$ via the product and chain rules yields: \[G_X''(s) = 2 \left( G'_{T_1}(s) \right)^2 + 2G_{T_1}(s)G''_{T_1}(s).\] Evaluating at $s = 1$ with $G_{T_1}(1) = 1$ and $G'_{T_1}(1) = 3$ gives \[G_X''(1) = 2(3)^2 + 2(1)G''_{T_1}(1) = 18 + 2G''_{T_1}(1).\] The equation for a single step is $sG^2 - 3G + 2s = 0$ (where $G = G_{T_1}(s)$). Its first derivative is: \[2sGG' + G^2 - 3G' + 2 = 0.\] Differentiating implicitly a second time with respect to $s$: \[4GG' + 2s(G')^2 + (2sG - 3)G'' = 0.\] Plugging in $s = 1$, $G(1) = 1$, and $G'(1) = 3$: \[4(1)(3) + 2(1)(3)^2 + (2(1)(1) - 3)G'' = 0\] so \[12 + 18 - G'' = 0 \implies G''_{T_1}(1) = 30.\] Finally, substituting $G''_{T_1}(1) = 30$ into the chain rule relation: \[G_X''(1) = 18 + 2(30) = 78.\] Thus, the expected value of $X^2$ is: \[\mathbb{E}[X^2] = G_X''(1) + G_X'(1) = 78 + 6 = \boxed{84}\] as desired.
 
-\subsection{Common Ideas}
-
-Here are some common ideas that appear that relate to PGFs:
-
-\begin{example*}[Common PGF Patterns]
-\begin{itemize}
-\item Independent sums: \[G_{X+Y}=G_XG_Y\]
-\item First-step analysis: \[G(s)=\text{immediate contribution}+\text{restart contribution}\]
-\item Moments: \[E[X]=G'(1),\qquad E[X^2]=G''(1)+G'(1).\]
-\end{itemize}
-\end{example*}
-
 \section{Practice Problems}
 
-\begin{enumerate}
-\item A random variable $X$ has PGF \[G_X(s)=\frac{1+s+s^2+s^3}{4}.\] Find \[\mathbb{E}[X],\qquad \operatorname{Var}(X).\]
-\item Three fair $10$-sided dice are rolled. Find the probability that the sum is congruent to $1 \pmod{4}$.
-\item A biased coin has probability $p$ of heads. It is flipped until the first head appears. Let $X$ be the total number of flips. Find the:
+\begin{problem}[1]{}
+A random variable $X$ has PGF \[G_X(s)=\frac{1+s+s^2+s^3}{4}.\] Find $\mathbb{E}[X]$ and $\operatorname{Var}(X)$.
+\end{problem}
+\begin{problem}[2]{}
+Three fair $10$-sided dice are rolled. Find the probability that the sum is congruent to $1 \pmod{4}$.
+\end{problem}
+\begin{problem}[3]{}
+A biased coin has probability $p$ of heads. It is flipped until the first head appears. Let $X$ be the total number of flips. Find the:
 \begin{itemize}
 \item PGF of the number of flips
 \item $\mathbb{E}[X]$
 \item $\mathbb{E}[X^2]$
 \item $\mathbb{E}[X^3]$.
 \end{itemize}
-\item A particle starts at $0$. Each step it moves right with probability $p$ and left with probability $p$ for $p < \tfrac{1}{2}$.
-Find the expected time to first reach $2$.
-\item For the random walk in the previous problem, find \[\mathbb{E}[T^2].\]
-\item A random variable $X$ satisfies \[G_X(s)=\frac13(1+s+s^2G_X(s)).\] Find \[\mathbb{E}[X] \qquad\text{and}\qquad \operatorname{Var}(X).\]
-\item A plant reproduces as follows: each plant produces $0$, $1$, or $2$
+\end{problem}
+\begin{problem}[4]{}
+This problem has two parts:
+\begin{itemize}
+\item A particle starts at $0$. Each step it moves right with probability $p$ and left with probability $p$ for $p < \tfrac{1}{2}$. Find the expected time to first reach $2$.
+\item For the random walk in the previous part, find \[\mathbb{E}[T^2].\]
+\end{itemize}
+\end{problem}
+\begin{problem}[5]{}
+A random variable $X$ satisfies \[G_X(s)=\frac13(1+s+s^2G_X(s)).\] Find $\mathbb{E}[X]$ and $\operatorname{Var}(X)$.
+\end{problem}
+\begin{problem}[6]{}
+A plant reproduces as follows: each plant produces $0$, $1$, or $2$
 offspring with probabilities \[\frac14,\frac12,\frac14,\] respectively. Let $X$ be the total number of plants in the resulting family tree, including the original plant.
 \begin{itemize}
 \item Find the probability generating function of $X$.
 \item Determine whether $\mathbb{E}[X]$ is finite.
 \item Compute $P(X=2n+1)$ for a fixed non-negative integer $n$.
 \end{itemize}
-\end{enumerate}
+\end{problem}
 \end{document}
