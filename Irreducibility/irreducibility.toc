@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Preface}{2}{section.1}%
+\contentsline {section}{\numberline {2}Preliminaries}{2}{section.2}%
+\contentsline {section}{\numberline {3}Reduction Maps}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Gauss' Lemma}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Reduction Maps Revisited}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Eisenstein's Criterion}{7}{section.4}%
+\contentsline {section}{\numberline {5}Examples}{8}{section.5}%
+\contentsline {section}{\numberline {6}More Obscure Theorems}{9}{section.6}%
+\contentsline {section}{\numberline {7}Problems}{11}{section.7}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
